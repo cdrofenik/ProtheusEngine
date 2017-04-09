@@ -1,0 +1,28 @@
+#############################################
+# Folder with built executionals and dlls
+#############################################
+
+x64_Debug/
+x64_Release/
+
+#############################################
+# Visual Studio generated folders
+#############################################
+
+solutions/PrometheusEngine/include
+solutions/PrometheusEngine/x64
+
+#############################################
+# Visual Studio generated files
+#############################################
+*.exe
+*.ilk
+*.pdb
+*.log
+*.tlog
+*.idb
+*.suo
+*.sdf
+*.opensdf
+*.opendb
+*.db

@@ -12,6 +12,11 @@ ProShader::~ProShader()
 	CleanUp();
 }
 
+void ProShader::Bind()
+{
+	glUseProgram(m_program);
+}
+
 void ProShader::CleanUp()
 {
 	glUseProgram(0);
@@ -36,6 +41,7 @@ void ProShader::Compile()
 	glValidateProgram(this->m_program);
 	ShaderSanityCheck(this->m_program, true);
 
+	PopulateUniforms();
 	printf("[ProShader] Program compiled and prepared for usage.\n");
 }
 
@@ -54,9 +60,12 @@ void ProShader::AddFragmentShader(const char * shaderFilePath)
 	AddShader(shaderFilePath, GL_FRAGMENT_SHADER);
 }
 
-void ProShader::Bind()
+void ProShader::PopulateUniforms()
 {
-	glUseProgram(m_program);
+	GLuint uniformID = glGetUniformLocation(this->m_program, (GLchar*)"model");
+	m_uniformList.insert_or_assign((GLchar*)"model", uniformID);
+
+	//TODO: Try to implement this properly in the future
 }
 
 void ProShader::AddShader(const char * shaderFilePath, GLuint shaderType)
@@ -94,4 +103,29 @@ void ProShader::ShaderSanityCheck(const GLuint& id, const bool& isProgram)
 			printf("[ProShader] %s\n", infoLog);
 		}
 	}
+}
+
+GLuint ProShader::GetProgram() { return m_program; }
+
+GLuint ProShader::GetUniformLocation(const GLchar *value_)
+{
+	return glGetUniformLocation(this->m_program, value_);
+}
+
+void ProShader::SetUniform1F(const GLchar* uniformName, const ProReal& value)
+{
+	GLuint uniformID = GetUniformLocation(uniformName);
+	glUniform1f(uniformID, value);
+}
+
+void ProShader::SetUniform3F(const GLchar* uniformName, const ProVector3r& value)
+{
+	GLuint uniformID = GetUniformLocation(uniformName);
+	glUniform3fv(uniformID, 1, &(value.x));
+}
+
+void ProShader::SetUniformMatrix4F(const GLchar* uniformName, ProMatrix4 &value)
+{
+	GLuint uniformID = GetUniformLocation(uniformName);
+	glUniformMatrix4fv(uniformID, 1, GL_FALSE, value.m);
 }

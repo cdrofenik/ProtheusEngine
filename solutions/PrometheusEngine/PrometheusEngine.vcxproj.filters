@@ -86,36 +86,36 @@
     <ClInclude Include="ProVertex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProMatrix3.hpp">
+    <ClInclude Include="..\..\include\core\math\ProMatrix3.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProMatrix3x4.hpp">
+    <ClInclude Include="..\..\include\core\math\ProMatrix3x4.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProMatrix4.hpp">
+    <ClInclude Include="..\..\include\core\math\ProMatrix4.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProPrecision.hpp">
+    <ClInclude Include="..\..\include\core\math\ProPrecision.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProQuaternion.hpp">
+    <ClInclude Include="..\..\include\core\math\ProQuaternion.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProTransform.hpp">
+    <ClInclude Include="..\..\include\core\math\ProTransform.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProVector2.hpp">
+    <ClInclude Include="..\..\include\core\math\ProVector2.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\core\math\ProVector3.hpp">
+    <ClInclude Include="..\..\include\core\math\ProVector3.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\res\shaders\basicShader.fs">
+    <None Include="..\..\res\shaders\basicShader.fs">
       <Filter>Resource Files\ShaderFiles</Filter>
     </None>
-    <None Include="..\res\shaders\basicShader.vs">
+    <None Include="..\..\res\shaders\basicShader.vs">
       <Filter>Resource Files\ShaderFiles</Filter>
     </None>
   </ItemGroup>

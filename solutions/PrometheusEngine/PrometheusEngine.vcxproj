@@ -135,14 +135,14 @@
     <ClCompile Include="ProTime.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\core\math\ProMatrix3.hpp" />
-    <ClInclude Include="..\include\core\math\ProMatrix3x4.hpp" />
-    <ClInclude Include="..\include\core\math\ProMatrix4.hpp" />
-    <ClInclude Include="..\include\core\math\ProPrecision.hpp" />
-    <ClInclude Include="..\include\core\math\ProQuaternion.hpp" />
-    <ClInclude Include="..\include\core\math\ProTransform.hpp" />
-    <ClInclude Include="..\include\core\math\ProVector2.hpp" />
-    <ClInclude Include="..\include\core\math\ProVector3.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProMatrix3.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProMatrix3x4.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProMatrix4.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProPrecision.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProQuaternion.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProTransform.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProVector2.hpp" />
+    <ClInclude Include="..\..\include\core\math\ProVector3.hpp" />
     <ClInclude Include="gameApp.h" />
     <ClInclude Include="mainApp.h" />
     <ClInclude Include="ProDisplayManager.h" />
@@ -155,8 +155,8 @@
     <ClInclude Include="ProVertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\res\shaders\basicShader.fs" />
-    <None Include="..\res\shaders\basicShader.vs" />
+    <None Include="..\..\res\shaders\basicShader.fs" />
+    <None Include="..\..\res\shaders\basicShader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,10 +13,10 @@ public:
 
 
 	void Init();
-	void AddVertices(ProVertex data[], const int& length);
+	void AddVertices(ProVertex vertices[], int indices[], const int& length);
 	void Draw();
 
 private:
-	GLuint m_vao, m_vbo;
+	GLuint m_vao, m_vbo, m_ibo;
 	int m_size;
 };

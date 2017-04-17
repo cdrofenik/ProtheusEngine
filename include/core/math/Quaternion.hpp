@@ -1,46 +1,46 @@
-#ifndef PROMETHEUS_QUARTERNION_HPP
-#define PROMETHEUS_QUARTERNION_HPP
+#ifndef QUARTERNION_HPP
+#define QUARTERNION_HPP
 
-#include "ProVector3.hpp"
+#include "Vector3.hpp"
 #include <math.h>
 
-class ProQuarternion
+class Quarternion
 {
 public:
 	union {
 		struct {
-			ProReal r;
-			ProReal i;
-			ProReal j;
-			ProReal k;
+			Real r;
+			Real i;
+			Real j;
+			Real k;
 		};
 
-		ProReal data[4];
+		Real data[4];
 	};
 
-	ProQuarternion(const ProReal &_r = 0, const ProReal &_i = 0,
-		const ProReal &_j = 0, const ProReal &_k = 0) :
+	Quarternion(const Real &_r = 0, const Real &_i = 0,
+		const Real &_j = 0, const Real &_k = 0) :
 		r(_r), i(_i), j(_j), k(_k) {}
 
 	void normalize()
 	{
-		ProReal d = r*r + i*i + j*j + k*k;
+		Real d = r*r + i*i + j*j + k*k;
 
 		if (d == 0) {
 			r = 1;
 			return;
 		}
 
-		d = 1.0f / (ProReal)sqrt(d);
+		d = 1.0f / (Real)sqrt(d);
 		r *= d;
 		i *= d;
 		j *= d;
 		k *= d;
 	}
 
-	void operator*=(const ProQuarternion &_multiplier)
+	void operator*=(const Quarternion &_multiplier)
 	{
-		ProQuarternion result, q  = *this;
+		Quarternion result, q  = *this;
 		result.r = q.r * _multiplier.r - q.i * _multiplier.i - q.j * _multiplier.j - q.k * _multiplier.k;
 		result.i = q.r * _multiplier.i + q.i * _multiplier.r + q.j * _multiplier.k - q.k * _multiplier.j;
 		result.j = q.r * _multiplier.j + q.j * _multiplier.r + q.k * _multiplier.i - q.i * _multiplier.k;
@@ -49,15 +49,15 @@ public:
 		*this = result;
 	}
 
-	void rotateByVector(const ProVector3r &_vector)
+	void rotateByVector(const Vector3r &_vector)
 	{
-		ProQuarternion q(0, _vector.x, _vector.y, _vector.z);
+		Quarternion q(0, _vector.x, _vector.y, _vector.z);
 		(*this) *= q;
 	}
 
-	void addScaledVector(const ProVector3r &_vector, const ProReal& _scale)
+	void addScaledVector(const Vector3r &_vector, const Real& _scale)
 	{
-		ProQuarternion q(0, _vector.x * _scale, _vector.y * _scale, _vector.z * _scale);
+		Quarternion q(0, _vector.x * _scale, _vector.y * _scale, _vector.z * _scale);
 		q *= *this;
 		r += q.r * (0.5f);
 		i += q.i * (0.5f);

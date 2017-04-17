@@ -15,7 +15,7 @@ std::string ProResourceLoader::GetStringFromFile(std::string filePath)
 		fileStream.close();
 	}
 	else {
-		printf("Impossible to open %s. Are you in the right directory?\n", filePath);
+		printf("Impossible to open %s. Are you in the right directory?\n", filePath.c_str());
 		getchar();
 		return 0;
 	}

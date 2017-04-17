@@ -2,6 +2,8 @@
 # Folder with built executionals and dlls
 #############################################
 
+ipch/
+x64/
 x64_Debug/
 x64_Release/
 
@@ -11,6 +13,7 @@ x64_Release/
 
 solutions/PrometheusEngine/include
 solutions/PrometheusEngine/x64
+solutions/PrometheusEngineUnitTests/x64
 
 #############################################
 # Visual Studio generated files

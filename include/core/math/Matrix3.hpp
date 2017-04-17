@@ -1,42 +1,42 @@
-#ifndef PROMETHEUS_MATRIX3_HPP
-#define PROMETHEUS_MATRIX3_HPP
+#ifndef MATRIX3_HPP
+#define MATRIX3_HPP
 
-#include "ProPrecision.hpp"
-#include "ProVector3.hpp"
-#include "ProQuaternion.hpp"
+#include "Precision.hpp"
+#include "Vector3.hpp"
+#include "Quaternion.hpp"
 
-class ProMatrix3 {
+class Matrix3 {
 
 public:
-	ProReal m[9]; //TODO dodaj komentarje za vse operacije
+	Real m[9]; //TODO dodaj komentarje za vse operacije
 
-	ProMatrix3(const ProReal &v = 1.0f)
+	Matrix3(const Real &v = 1.0f)
 	{
 		m[0] = m[4] = m[8] = v; // diagonal elements
 		m[1] = m[2] = m[3] = m[5] = m[6] = m[7] = 0.0f;
 	}
 
-	ProMatrix3(const ProReal &a00, const ProReal &a01, const ProReal &a02,
-		const ProReal &a10, const ProReal &a11, const ProReal &a12,
-		const ProReal &a20, const ProReal &a21, const ProReal &a22)
+	Matrix3(const Real &a00, const Real &a01, const Real &a02,
+		const Real &a10, const Real &a11, const Real &a12,
+		const Real &a20, const Real &a21, const Real &a22)
 	{
 		m[0] = a00;		m[1] = a01;		m[2] = a02;
 		m[3] = a10;		m[4] = a11;		m[5] = a12;
 		m[6] = a20;		m[7] = a21;		m[8] = a22;
 	}
 
-	ProMatrix3 operator*(const ProReal &_value) const
+	Matrix3 operator*(const Real &_value) const
 	{
-		return ProMatrix3(
+		return Matrix3(
 			m[0] * _value, m[1] * _value, m[2] * _value,
 			m[3] * _value, m[4] * _value, m[5] * _value,
 			m[6] * _value, m[7] * _value, m[8] * _value
 			);
 	}
 
-	ProMatrix3 operator*(const ProMatrix3 &_rmat) const
+	Matrix3 operator*(const Matrix3 &_rmat) const
 	{
-		return ProMatrix3(
+		return Matrix3(
 			m[0] * _rmat.m[0] + m[1] * _rmat.m[3] + m[2] * _rmat.m[6],
 			m[0] * _rmat.m[1] + m[1] * _rmat.m[4] + m[2] * _rmat.m[7],
 			m[0] * _rmat.m[2] + m[1] * _rmat.m[5] + m[2] * _rmat.m[8],
@@ -51,24 +51,24 @@ public:
 			);
 	}
 
-	ProMatrix3 operator+(const ProMatrix3 &_rmat) const
+	Matrix3 operator+(const Matrix3 &_rmat) const
 	{
-		return ProMatrix3(
+		return Matrix3(
 			m[0] + _rmat.m[0], m[1] + _rmat.m[1], m[2] + _rmat.m[2],
 			m[3] + _rmat.m[3], m[4] + _rmat.m[4], m[5] + _rmat.m[5],
 			m[6] + _rmat.m[6], m[7] + _rmat.m[7], m[8] + _rmat.m[8]
 			);
 	}
 
-	ProVector3r operator*(const ProVector3r &_vector) const
+	Vector3r operator*(const Vector3r &_vector) const
 	{
-		return ProVector3r(
+		return Vector3r(
 			_vector.x * m[0] + _vector.y * m[1] + _vector.z * m[2],
 			_vector.x * m[3] + _vector.y * m[4] + _vector.z * m[5],
 			_vector.x * m[6] + _vector.y * m[7] + _vector.z * m[8]);
 	}
 
-	void operator*=(const ProReal &_value) {
+	void operator*=(const Real &_value) {
 		m[0] *= _value;
 		m[1] *= _value;
 		m[2] *= _value;
@@ -82,8 +82,8 @@ public:
 		m[8] *= _value;
 	}
 
-	void operator*=(const ProMatrix3 &_rmat) {
-		ProReal v1, v2, v3;
+	void operator*=(const Matrix3 &_rmat) {
+		Real v1, v2, v3;
 		v1 = m[0] * _rmat.m[0] + m[1] * _rmat.m[3] + m[2] * _rmat.m[6];
 		v2 = m[0] * _rmat.m[1] + m[1] * _rmat.m[4] + m[2] * _rmat.m[7];
 		v3 = m[0] * _rmat.m[2] + m[1] * _rmat.m[5] + m[2] * _rmat.m[8];
@@ -106,7 +106,7 @@ public:
 		m[8] = v3;
 	}
 
-	void operator+=(const ProMatrix3 &_rmat) {
+	void operator+=(const Matrix3 &_rmat) {
 		m[0] += _rmat.m[0];
 		m[1] += _rmat.m[1];
 		m[2] += _rmat.m[2];
@@ -120,58 +120,38 @@ public:
 		m[8] += _rmat.m[8];
 	}
 
-	ProVector3r transform(const ProVector3r &_vector) const
+	Vector3r transform(const Vector3r &_vector) const
 	{
 		return (*this) * _vector;
 	}
 
-	ProReal getDeterminant() const
+	Real getDeterminant() const
 	{
 		return getDeterminant(*this);
 	}
 
-	void setInverse(const ProMatrix3 &_rmat)
+	Matrix3 inverse() const
 	{
-		ProReal det = getDeterminant(_rmat);
-
-		if (det == 0.0f) return;
-		ProReal invDet = 1.0f / det;
-
-		m[0] = (_rmat.m[4] * _rmat.m[8] - _rmat.m[7] * _rmat.m[5]) * invDet;
-		m[1] = -(_rmat.m[1] * _rmat.m[8] - _rmat.m[2] * _rmat.m[7]) * invDet;
-		m[2] = (_rmat.m[1] * _rmat.m[5] - _rmat.m[2] * _rmat.m[4]) * invDet;
-
-		m[3] = -(_rmat.m[3] * _rmat.m[8] - _rmat.m[5] * _rmat.m[6]) * invDet;
-		m[4] = (_rmat.m[0] * _rmat.m[8] - _rmat.m[2] * _rmat.m[6]) * invDet;
-		m[5] = -(_rmat.m[0] * _rmat.m[5] - _rmat.m[2] * _rmat.m[3])* invDet;
-
-		m[6] = (_rmat.m[3] * _rmat.m[7] - _rmat.m[4] * _rmat.m[6]) * invDet;
-		m[7] = -(_rmat.m[0] * _rmat.m[7] - _rmat.m[1] * _rmat.m[6]) * invDet;
-		m[8] = (_rmat.m[0] * _rmat.m[4] - _rmat.m[1] * _rmat.m[3]) * invDet;
-	}
-
-	ProMatrix3 inverse() const
-	{
-		ProMatrix3 result;
+		Matrix3 result;
 		result.setInverse(*this);
 		return result;
 	}
 
 	void invert()
 	{
-		ProMatrix3 result;
+		Matrix3 result;
 		result.setInverse(*this);
 		*this = result;
 	}
 		
-	ProMatrix3 transpose() const
+	Matrix3 transpose() const
 	{
-		ProMatrix3 result;
+		Matrix3 result;
 		result.setTranspose(*this);
 		return result;
 	}
 
-	void setOrientation(const ProQuarternion &q)
+	void setOrientation(const Quarternion &q)
 	{
 		m[0] = 1 - (2 * q.j * q.j + 2 * q.k * q.k);
 		m[1] = 2 * q.i * q.j + 2 * q.k * q.r;
@@ -187,23 +167,43 @@ public:
 	}
 
 private:
-	ProReal getDeterminant(const ProMatrix3 &_rmat) const
+	Real getDeterminant(const Matrix3 &_rmat) const
 	{
-		ProReal v1 = _rmat.m[0] * _rmat.m[4] * _rmat.m[8];
-		ProReal v2 = _rmat.m[1] * _rmat.m[5] * _rmat.m[6];
-		ProReal v3 = _rmat.m[2] * _rmat.m[3] * _rmat.m[7];
+		Real v1 = _rmat.m[0] * _rmat.m[4] * _rmat.m[8];
+		Real v2 = _rmat.m[1] * _rmat.m[5] * _rmat.m[6];
+		Real v3 = _rmat.m[2] * _rmat.m[3] * _rmat.m[7];
 
-		ProReal v4 = _rmat.m[6] * _rmat.m[4] * _rmat.m[2];
-		ProReal v5 = _rmat.m[7] * _rmat.m[5] * _rmat.m[0];
-		ProReal v6 = _rmat.m[8] * _rmat.m[3] * _rmat.m[1];
+		Real v4 = _rmat.m[6] * _rmat.m[4] * _rmat.m[2];
+		Real v5 = _rmat.m[7] * _rmat.m[5] * _rmat.m[0];
+		Real v6 = _rmat.m[8] * _rmat.m[3] * _rmat.m[1];
 
 		return v1 + v2 + v3 - v4 - v5 - v6;
 	}
 
-	void setTranspose(const ProMatrix3 &_rmat) {
+	void setTranspose(const Matrix3 &_rmat) {
 		m[0] = _rmat.m[0]; m[1] = _rmat.m[3]; m[2] = _rmat.m[6];
 		m[3] = _rmat.m[1]; m[4] = _rmat.m[4]; m[5] = _rmat.m[7];
 		m[6] = _rmat.m[2]; m[7] = _rmat.m[5]; m[8] = _rmat.m[8];
+	}
+
+	void setInverse(const Matrix3 &_rmat)
+	{
+		Real det = getDeterminant(_rmat);
+
+		if (det == 0.0f) return;
+		Real invDet = 1.0f / det;
+
+		m[0] = (_rmat.m[4] * _rmat.m[8] - _rmat.m[7] * _rmat.m[5]) * invDet;
+		m[1] = -(_rmat.m[1] * _rmat.m[8] - _rmat.m[2] * _rmat.m[7]) * invDet;
+		m[2] = (_rmat.m[1] * _rmat.m[5] - _rmat.m[2] * _rmat.m[4]) * invDet;
+
+		m[3] = -(_rmat.m[3] * _rmat.m[8] - _rmat.m[5] * _rmat.m[6]) * invDet;
+		m[4] = (_rmat.m[0] * _rmat.m[8] - _rmat.m[2] * _rmat.m[6]) * invDet;
+		m[5] = -(_rmat.m[0] * _rmat.m[5] - _rmat.m[2] * _rmat.m[3])* invDet;
+
+		m[6] = (_rmat.m[3] * _rmat.m[7] - _rmat.m[4] * _rmat.m[6]) * invDet;
+		m[7] = -(_rmat.m[0] * _rmat.m[7] - _rmat.m[1] * _rmat.m[6]) * invDet;
+		m[8] = (_rmat.m[0] * _rmat.m[4] - _rmat.m[1] * _rmat.m[3]) * invDet;
 	}
 };
 #endif

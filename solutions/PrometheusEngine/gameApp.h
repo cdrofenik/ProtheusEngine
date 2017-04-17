@@ -1,10 +1,11 @@
 #pragma once
 
-#include "core\math\ProTransform.hpp"
+#include "core\math\Transform.hpp"
 
 #include "ProVertex.h"
 #include "ProMesh.h"
 #include "ProShader.h"
+#include "ProCamera.h"
 
 
 class gameApp
@@ -22,6 +23,7 @@ public:
 private:
 	ProMesh mesh;
 	ProShader shader;
-	ProTransform transform;
+	Transform transform;
+	ProCamera camera;
 };
 

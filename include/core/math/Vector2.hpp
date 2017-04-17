@@ -1,7 +1,7 @@
-#ifndef PROMETHEUS_VECTOR2_HPP
-#define PROMETHEUS_VECTOR2_HPP
+#ifndef VECTOR2_HPP
+#define VECTOR2_HPP
 
-#include "ProPrecision.hpp"
+#include "Precision.hpp"
 
 template <typename T>
 class ProVector2 {

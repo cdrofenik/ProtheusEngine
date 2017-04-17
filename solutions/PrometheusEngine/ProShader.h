@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core\math\ProPrecision.hpp"
-#include "core\math\ProVector3.hpp"
-#include "core\math\ProMatrix4.hpp"
+#include "core\math\Precision.hpp"
+#include "core\math\Vector3.hpp"
+#include "core\math\Matrix4.hpp"
 
 #include "GL\glew.h"
 
@@ -24,9 +24,9 @@ public:
 	void AddGeometryShader(const char * shaderFilePath);
 	void AddFragmentShader(const char * shaderFilePath);
 
-	void SetUniform1F(const GLchar* uniformName, const ProReal& value);
-	void SetUniform3F(const GLchar* uniformName, const ProVector3r& value);
-	void SetUniformMatrix4F(const GLchar* uniformName, ProMatrix4& value);
+	void SetUniform1F(const GLchar* uniformName, const Real& value);
+	void SetUniform3F(const GLchar* uniformName, const Vector3r& value);
+	void SetUniformMatrix4F(const GLchar* uniformName, Matrix4& value);
 
 	GLuint GetUniformLocation(const GLchar *value);
 	GLuint GetProgram();

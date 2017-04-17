@@ -112,19 +112,19 @@ GLuint ProShader::GetUniformLocation(const GLchar *value_)
 	return glGetUniformLocation(this->m_program, value_);
 }
 
-void ProShader::SetUniform1F(const GLchar* uniformName, const ProReal& value)
+void ProShader::SetUniform1F(const GLchar* uniformName, const Real& value)
 {
 	GLuint uniformID = GetUniformLocation(uniformName);
 	glUniform1f(uniformID, value);
 }
 
-void ProShader::SetUniform3F(const GLchar* uniformName, const ProVector3r& value)
+void ProShader::SetUniform3F(const GLchar* uniformName, const Vector3r& value)
 {
 	GLuint uniformID = GetUniformLocation(uniformName);
 	glUniform3fv(uniformID, 1, &(value.x));
 }
 
-void ProShader::SetUniformMatrix4F(const GLchar* uniformName, ProMatrix4 &value)
+void ProShader::SetUniformMatrix4F(const GLchar* uniformName, Matrix4 &value)
 {
 	GLuint uniformID = GetUniformLocation(uniformName);
 	glUniformMatrix4fv(uniformID, 1, GL_FALSE, value.m);

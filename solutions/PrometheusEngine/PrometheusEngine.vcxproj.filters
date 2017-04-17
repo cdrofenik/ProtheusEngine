@@ -54,6 +54,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ProCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameApp.h">
@@ -86,28 +89,31 @@
     <ClInclude Include="ProVertex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProMatrix3.hpp">
+    <ClInclude Include="ProCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\core\math\Matrix3.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProMatrix3x4.hpp">
+    <ClInclude Include="..\..\include\core\math\Matrix3x4.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProMatrix4.hpp">
+    <ClInclude Include="..\..\include\core\math\Matrix4.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProPrecision.hpp">
+    <ClInclude Include="..\..\include\core\math\Precision.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProQuaternion.hpp">
+    <ClInclude Include="..\..\include\core\math\Quaternion.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProTransform.hpp">
+    <ClInclude Include="..\..\include\core\math\Transform.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProVector2.hpp">
+    <ClInclude Include="..\..\include\core\math\Vector2.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\core\math\ProVector3.hpp">
+    <ClInclude Include="..\..\include\core\math\Vector3.hpp">
       <Filter>Core\Math</Filter>
     </ClInclude>
   </ItemGroup>

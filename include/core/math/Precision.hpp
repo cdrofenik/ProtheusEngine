@@ -1,15 +1,15 @@
-#ifndef PROMETHEUS_PRECISION_HPP
-#define PROMETHEUS_PRECISION_HPP
+#ifndef PRECISION_HPP
+#define PRECISION_HPP
 
 	/*
 		Defines a real number precision Prometheus Engine supports single- and double- precision versions.
 		The default one is single-precision.
 		*/
 #if DOUBLE_PRECISION
-	typedef double ProReal;
+	typedef double Real;
 	#define NP_REAL_MAX DOUBLE_MAX
 #else
-	typedef float ProReal;
+	typedef float Real;
 	#define NP_REAL_MAX _FMAX
 #endif
 

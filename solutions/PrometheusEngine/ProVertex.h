@@ -5,7 +5,6 @@
 struct ProVertex
 {
 public:
-	static const int SIZE = 3;
 
 	Vector3r GetPosition() {
 		return m_position;

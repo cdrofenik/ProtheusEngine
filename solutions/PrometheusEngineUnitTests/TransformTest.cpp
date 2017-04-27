@@ -156,7 +156,7 @@ namespace PrometheusEngineUnitTests
 		{
 			Transform transform;
 			Matrix4 matrix =
-				transform.GetProjectionMatrix(45.0f, 1024.0f / 768.0f, 0.1f, 100.0f);
+				transform.projectionMatrix(45.0f, 1024.0f / 768.0f, 0.1f, 100.0f);
 			Assert::AreEqual(matrix.m[0], 1.3443320f, 0.001f); //Be careful
 			Assert::AreEqual(matrix.m[1], 0.0f);
 			Assert::AreEqual(matrix.m[2], 0.0f);

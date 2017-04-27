@@ -38,7 +38,7 @@ public:
 		k *= d;
 	}
 
-	void operator*=(const Quarternion &_multiplier)
+	void operator*=(const Quarternion& _multiplier)
 	{
 		Quarternion result, q  = *this;
 		result.r = q.r * _multiplier.r - q.i * _multiplier.i - q.j * _multiplier.j - q.k * _multiplier.k;
@@ -49,13 +49,15 @@ public:
 		*this = result;
 	}
 
-	void rotateByVector(const Vector3r &_vector)
+	Quarternion rotateByVector(const Vector3r& _vector)
 	{
 		Quarternion q(0, _vector.x, _vector.y, _vector.z);
-		(*this) *= q;
+		//(*this) *= q;
+		Quarternion result;
+		result *= q;
 	}
 
-	void addScaledVector(const Vector3r &_vector, const Real& _scale)
+	void addScaledVector(const Vector3r& _vector, const Real& _scale)
 	{
 		Quarternion q(0, _vector.x * _scale, _vector.y * _scale, _vector.z * _scale);
 		q *= *this;

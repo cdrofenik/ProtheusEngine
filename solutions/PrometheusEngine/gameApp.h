@@ -24,6 +24,8 @@ private:
 	ProMesh mesh;
 	ProShader shader;
 	Transform transform;
-	ProCamera camera;
+	ProCamera* camera;
+
+	bool isPaused;
 };
 

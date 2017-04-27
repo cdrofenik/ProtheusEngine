@@ -2,6 +2,8 @@
 
 #include "GLFW\glfw3.h"
 
+#include "core\math\Precision.hpp"
+
 #include <vector>
 
 class ProInputHandler
@@ -13,6 +15,7 @@ public:
 
 	static bool isKeyDown(int key);
 	static bool isMouseButtonDown(int key);
+	static bool getMousePositionChanged(Real& xPos, Real& yPos);
 
 private:
 	static void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -21,5 +24,9 @@ private:
 
 	static std::vector<int> m_keys;
 	static std::vector<int> m_mouseButtons;
+	static Real m_xDistance;
+	static Real m_yDistance;
+	static bool m_mousePositionChanged;
+	static bool m_firstMouse;
 };
 

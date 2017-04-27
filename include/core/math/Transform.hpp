@@ -49,7 +49,7 @@ public:
 		return m_finalTransformation;
 	}
 
-	static Matrix4 GetProjectionMatrix(const Real& fov, const Real& ratio, const Real& zNear, const Real& zFar) {
+	static Matrix4 projectionMatrix(const Real& fov, const Real& ratio, const Real& zNear, const Real& zFar) {
 		Matrix4 v;
 
 		Real tanHalfFOV = (Real)tan(fov / 2);
@@ -60,6 +60,46 @@ public:
 		v.m[8] = 0.0f;							v.m[9] = 0.0f;				v.m[10] = -(zFar + zNear)/zRange;	v.m[11] = -(2.0f * zFar * zNear) / zRange;
 		v.m[12] = 0.0f;							v.m[13] = 0.0f;				v.m[14] = -1.0f;					v.m[15] = 0.0f;
 		return v;
+	}
+
+	static Matrix4 lookAtMatrix(const Vector3r& position, const Vector3r& target, const Vector3r& up) {
+		Vector3r zAxis = (position - target).normalize();
+		Vector3r xAxis = (up % zAxis).normalize();
+		Vector3r yAxis = zAxis % xAxis;
+
+		Matrix4 Ruvw = Matrix4(
+			xAxis.x, xAxis.y, xAxis.z, 0,
+			yAxis.x, yAxis.y, yAxis.z, 0,
+			zAxis.x, zAxis.y, zAxis.z, 0,
+			0, 0, 0, 1
+		);
+
+		Matrix4 translationToEye(
+			1, 0, 0, -position.x,
+			0, 1, 0, -position.y,
+			0, 0, 1, -position.z,
+			0, 0, 0, 1
+		);
+
+		return Ruvw * translationToEye;
+	}
+
+	static Vector3r& rotate(const Real& angle, const Vector3r& axis)
+	{
+		Real sinHalfAngle = (Real)sin(angle / 2);
+		Real cosHalfAngle = (Real)cos(angle / 2);
+
+		Real rX = axis.x * sinHalfAngle;
+		Real rY = axis.y * sinHalfAngle;
+		Real rZ = axis.z * sinHalfAngle;
+		Real rW = cosHalfAngle;
+
+		Quarternion rotation(rX, rY, rZ, rW);
+		Quarternion w = rotation.rotateByVector(axis);
+
+		Vector3r result(w.i, w.j, w.k);
+		
+		return result;
 	}
 
 private:

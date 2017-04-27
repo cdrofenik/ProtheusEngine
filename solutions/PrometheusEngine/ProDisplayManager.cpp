@@ -69,9 +69,12 @@ void ProDisplayManager::CreateWindow(const char* windowTitle)
 
 	glViewport(0, 0, m_width, m_height);
 	m_isClosed = false;
+
+	glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
-ProDisplayManager::ProDisplayManager(const int& width, const int& height, const char* title) : m_width(width), m_height(height)
+ProDisplayManager::ProDisplayManager(const int& width, const int& height, const char* title) :
+	m_width(width), m_height(height)
 {
 	CreateWindow(title);
 }

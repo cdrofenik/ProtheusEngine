@@ -4,6 +4,8 @@
 
 #include "GL\glew.h"
 
+#include <vector>
+
 
 class ProMesh
 {
@@ -14,6 +16,7 @@ public:
 
 	void Init();
 	void AddVertices(ProVertex vertices[], int indices[], const int& length);
+	void AddVertices(std::vector<ProVertex> vertices, std::vector<int> indices);
 	void Draw();
 
 private:

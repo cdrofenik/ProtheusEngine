@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Other">
+      <UniqueIdentifier>{2d5d628b-7a73-4fe7-bec2-5d82fca41fb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{83d0a6d1-837e-4fc7-8e80-b780cf124de1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collections">
+      <UniqueIdentifier>{eae16e1f-39cc-47ac-9aa1-854844f372d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logging">
+      <UniqueIdentifier>{9eac7e75-81ea-4971-8a51-482e0e10423a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3Test.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3x4Test.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4Test.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformTest.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="AlignedArrayTest.cpp">
+      <Filter>collections</Filter>
+    </ClCompile>
+    <ClCompile Include="LoggingTest.cpp">
+      <Filter>logging</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -16,106 +8,18 @@
     <Filter Include="Resource Files\ShaderFiles">
       <UniqueIdentifier>{633bc3eb-f58f-435d-bd36-7793351d0f41}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core">
-      <UniqueIdentifier>{e0843cb6-078a-4537-adea-3752e8efabed}</UniqueIdentifier>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{7ef9d0ba-06fd-4d79-8e54-d28250ab9921}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Math">
-      <UniqueIdentifier>{096b4400-d5ee-4ba4-a38f-e46b6dc08ae2}</UniqueIdentifier>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{4c623b48-c2b1-4f82-8486-460d5634b986}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="ProTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProResourceLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProRenderUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProInputHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProDisplayManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mainApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gameApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProCamera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="gameApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="mainApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProDisplayManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProInputHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProRenderUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProResourceLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProShader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProVertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProCamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Matrix3.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Matrix3x4.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Matrix4.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Precision.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Quaternion.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Transform.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Vector2.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\core\math\Vector3.hpp">
-      <Filter>Core\Math</Filter>
-    </ClInclude>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{10d66cb7-d5d3-4ba9-ada7-033c37e5fa0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{43da6697-74b0-445c-8d20-0d8010d48fae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\res\shaders\basicShader.fs">
@@ -124,5 +28,71 @@
     <None Include="..\..\res\shaders\basicShader.vs">
       <Filter>Resource Files\ShaderFiles</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\prometheusengine\gameApp.h" />
+    <ClInclude Include="..\..\include\prometheusengine\mainApp.h" />
+    <ClInclude Include="..\..\include\prometheusengine\ProCamera.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProShader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProTexture.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProDisplayManager.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProRenderUtil.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProMesh.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProInputHandler.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProResourceLoader.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProTime.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ProVertex.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\prometheusEngine\gameApp.cpp" />
+    <ClCompile Include="..\..\src\prometheusEngine\main.cpp" />
+    <ClCompile Include="..\..\src\prometheusEngine\mainApp.cpp" />
+    <ClCompile Include="..\..\src\prometheusEngine\ProCamera.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProShader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProTexture.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProDisplayManager.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProRenderUtil.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProMesh.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProInputHandler.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProResourceLoader.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ProTime.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

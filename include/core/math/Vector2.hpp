@@ -3,15 +3,18 @@
 
 #include "Precision.hpp"
 
-template <typename T>
-class ProVector2 {
-public:
-	T x, y;
-	npVector2() : x(0), y(0) {}
-	npVector2(T xx, T yy) : x(xx), y(yy) {}
-};
+namespace math {
 
-typedef ProVector2<float> ProVector2f;
-typedef ProVector2<int> ProVector2i;
+	template <typename T>
+	class Vector2 {
+	public:
+		T x, y;
+		Vector2() : x(0), y(0) {}
+		Vector2(const T& xx, const T& yy) : x(xx), y(yy) {}
+	};
+
+	typedef Vector2<Real> Vector2r;
+	typedef Vector2<int> Vector2i;
+}
 
 #endif

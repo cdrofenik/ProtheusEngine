@@ -3,17 +3,16 @@
 #############################################
 
 ipch/
-x64/
-x64_Debug/
-x64_Release/
+bin/
 
 #############################################
 # Visual Studio generated folders
 #############################################
 
-solutions/PrometheusEngine/include
+solutions/Core/x64
+solutions/CoreUnitTests/x64
+solutions/Physics/x64
 solutions/PrometheusEngine/x64
-solutions/PrometheusEngineUnitTests/x64
 
 #############################################
 # Visual Studio generated files

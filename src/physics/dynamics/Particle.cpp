@@ -1,5 +1,6 @@
 #include "physics\dynamics\Particle.h"
 
+// system dependency
 #include <assert.h>
 
 using namespace math;

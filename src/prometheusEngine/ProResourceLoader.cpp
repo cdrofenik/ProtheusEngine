@@ -22,7 +22,7 @@ std::string ProResourceLoader::GetStringFromFile(std::string filePath)
 		fileStream.close();
 	}
 	else {
-		printf("Impossible to open %s. Are you in the right directory?\n", filePath.c_str());
+		printf("[ProResourceLoader] Impossible to open %s. Are you in the right directory?\n", filePath.c_str());
 		getchar();
 		return 0;
 	}
@@ -42,7 +42,7 @@ std::string ProResourceLoader::GetStringFromFile(const char* filePath)
 		fileStream.close();
 	}
 	else {
-		printf("Impossible to open %s. Are you in the right directory?\n", filePath);
+		printf("[ProResourceLoader] Impossible to open %s. Are you in the right directory?\n", filePath);
 		getchar();
 		return 0;
 	}
@@ -52,7 +52,7 @@ std::string ProResourceLoader::GetStringFromFile(const char* filePath)
 
 bool ProResourceLoader::GetMeshFromFile(std::string filePath, ProMesh& outMesh)
 {
-	printf("Opening OBJ file: %s\n", filePath.c_str());
+	printf("[ProResourceLoader] Opening OBJ file: %s\n", filePath.c_str());
 
 	std::vector<ProVertex> vertices;
 	std::vector<int> indices;
@@ -62,7 +62,7 @@ bool ProResourceLoader::GetMeshFromFile(std::string filePath, ProMesh& outMesh)
 
 	err = fopen_s(&file, filePath.c_str(), "r");
 	if (file == NULL) {
-		printf("Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n");
+		printf("[ProResourceLoader] Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n");
 		getchar();
 		return false;
 	}
@@ -93,7 +93,7 @@ bool ProResourceLoader::GetMeshFromFile(std::string filePath, ProMesh& outMesh)
 			unsigned int vertexIndex[8];
 			int matches = fscanf_s(file, "%d//%d %d//%d %d//%d %d//%d\n", &vertexIndex[0], &vertexIndex[1], &vertexIndex[2], &vertexIndex[3], &vertexIndex[4], &vertexIndex[5], &vertexIndex[6], &vertexIndex[7]);
 			if (matches != 8) {
-				printf("File can't be read by our simple parser :-( Try exporting with other options\n");
+				printf("[ProResourceLoader] File can't be read by our simple parser :-( Try exporting with other options\n");
 				return false;
 			}
 

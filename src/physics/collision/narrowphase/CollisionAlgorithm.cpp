@@ -116,14 +116,14 @@ namespace physics
 		for (unsigned i = 0; i < 3; i++)
 		{
 			if (i == oneAxisIndex)
-				ptOnOneEdge.setValue(i, 0);
+				ptOnOneEdge.data[i] = 0;
 			else if (obj0->getTransformMatrix().getAxisValues(i) * axis > 0)
-				ptOnOneEdge.setValue(i, -ptOnOneEdge.getValue(i));
+				ptOnOneEdge.data[i] = -ptOnOneEdge.data[i];
 
 			if (i == twoAxisIndex)
-				ptOnTwoEdge.setValue(i, 0);
+				ptOnTwoEdge.data[i] = 0;
 			else if (obj1->getTransformMatrix().getAxisValues(i) * axis < 0)
-				ptOnTwoEdge.setValue(i, -ptOnTwoEdge.getValue(i));
+				ptOnTwoEdge.data[i] = -ptOnTwoEdge.data[i];
 		}
 
 		// Move them into world coordinates (they are already oriented
@@ -135,8 +135,8 @@ namespace physics
 		// We need to find out point of closest approach of the two
 		// line-segments.
 		math::Vector3r vertex = contactPoint(
-			ptOnOneEdge, oneAxis, box0->halfSize.getValue(oneAxisIndex),
-			ptOnTwoEdge, twoAxis, box1->halfSize.getValue(oneAxisIndex),
+			ptOnOneEdge, oneAxis, box0->halfSize.data[oneAxisIndex],
+			ptOnTwoEdge, twoAxis, box1->halfSize.data[oneAxisIndex],
 			bestAxis > 2
 			);
 

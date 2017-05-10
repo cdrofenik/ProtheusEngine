@@ -2,12 +2,14 @@
 
 #include "core\math\Transform.hpp"
 
-#include "ProInputHandler.h"
+#include "input\InputHandler.h"
+
 #include "ProTime.h"
 
 #include <iostream>
 
 using namespace math;
+using namespace input;
 
 static const int W_KEY = 87;
 static const int S_KEY = 83;
@@ -40,27 +42,21 @@ Matrix4 ProCamera::GetCameraMatrix()
 
 void ProCamera::input()
 {
-	if (ProInputHandler::isKeyDown(W_KEY))
+	if (InputHandler::isKeyDown(W_KEY))
 		move(this->m_front, SPEED * ProTime::getDelta());
-	if (ProInputHandler::isKeyDown(S_KEY))
+	if (InputHandler::isKeyDown(S_KEY))
 		move(this->m_front * -1.0f, SPEED * ProTime::getDelta());
-	if (ProInputHandler::isKeyDown(A_KEY))
+	if (InputHandler::isKeyDown(A_KEY))
 		move(this->m_right * -1.0f, SPEED * ProTime::getDelta());
-	if (ProInputHandler::isKeyDown(D_KEY)) {
+	if (InputHandler::isKeyDown(D_KEY)) {
 		move(this->m_right, SPEED * ProTime::getDelta());
 	}
 
-	evaluateMouseMove();
-}
-
-void ProCamera::evaluateMouseMove()
-{
-	Real xOffset;
 	Real yOffset;
+	Real xOffset;
 
-	if (ProInputHandler::getMousePositionChanged(xOffset, yOffset))
+	if(InputHandler::getMousePositionChanged(xOffset, yOffset))
 		rotate(xOffset, yOffset, true);
-	
 }
 
 void ProCamera::move(Vector3r direction, Real amount)

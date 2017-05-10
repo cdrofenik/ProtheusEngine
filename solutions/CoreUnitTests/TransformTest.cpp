@@ -104,8 +104,8 @@ namespace CoreUnitTests
 		TEST_METHOD(Rotation)
 		{
 			Transform transform;
-			Real value = sin(0.5);
-			transform.setRotation(value * 0.1, value * 2, value * 10);
+			Real value = static_cast<Real>(sin(0.5f));
+			transform.setRotation(value * 0.1f, value * 2.0f, value * 10.0f);
 			Matrix4 matrix = transform.getTransformMatrix();
 			Assert::AreEqual(matrix.m[0], 0.0469765f, 0.000001f);
 			Assert::AreEqual(matrix.m[1], 0.998713f, 0.000001f);
@@ -129,7 +129,7 @@ namespace CoreUnitTests
 		{
 			Transform transform;
 			transform.setTranslation(3.0f, 1.0f, 2.5f);
-			Real value = sin(0.5);
+			Real value = static_cast<Real>(sin(0.5f));
 			transform.setRotation(0.0f, value * 2, 0.0f);
 			transform.setScale(2.0f, 7.0f, 5.0f);
 			Matrix4 matrix = transform.getTransformMatrix();

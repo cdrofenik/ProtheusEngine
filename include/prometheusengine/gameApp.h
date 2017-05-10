@@ -3,9 +3,11 @@
 #include "core\math\Transform.hpp"
 
 #include "ProVertex.h"
-#include "ProMesh.h"
 #include "ProShader.h"
 #include "ProCamera.h"
+#include "ObjectLoader.h"
+
+#include "physics\DiscreteDynamicsWorld.h"
 
 
 class gameApp
@@ -21,10 +23,12 @@ public:
 	void update();
 
 private:
-	ProMesh mesh;
 	ProShader shader;
 	math::Transform transform;
 	ProCamera* camera;
+	ObjectLoader::LoadedObject objLoader;
+
+	physics::DiscreteDynamicsWorld* m_discreteWorld;
 
 	bool isPaused = false;
 };

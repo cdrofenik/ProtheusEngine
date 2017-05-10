@@ -11,14 +11,17 @@
     <Filter Include="Shader">
       <UniqueIdentifier>{7ef9d0ba-06fd-4d79-8e54-d28250ab9921}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Renderer">
-      <UniqueIdentifier>{4c623b48-c2b1-4f82-8486-460d5634b986}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Entity">
       <UniqueIdentifier>{10d66cb7-d5d3-4ba9-ada7-033c37e5fa0f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utils">
       <UniqueIdentifier>{43da6697-74b0-445c-8d20-0d8010d48fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics">
+      <UniqueIdentifier>{2c7e6b82-dfb6-4a54-b2bb-ee2334d6de08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{af4f6c52-9653-4f2b-8af7-e96d4559221f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -41,18 +44,6 @@
     <ClInclude Include="..\..\include\prometheusengine\ProTexture.h">
       <Filter>Shader</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\prometheusengine\ProDisplayManager.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\prometheusengine\ProRenderUtil.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\prometheusengine\ProMesh.h">
-      <Filter>Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\prometheusengine\ProInputHandler.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\prometheusengine\ProResourceLoader.h">
       <Filter>Utils</Filter>
     </ClInclude>
@@ -61,6 +52,15 @@
     </ClInclude>
     <ClInclude Include="..\..\include\prometheusengine\ProVertex.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\ObjectLoader.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\graphics\Window.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\prometheusengine\input\InputHandler.h">
+      <Filter>input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -76,23 +76,20 @@
     <ClCompile Include="..\..\src\prometheusEngine\ProTexture.cpp">
       <Filter>Shader</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\prometheusEngine\ProDisplayManager.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\prometheusEngine\ProRenderUtil.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\prometheusEngine\ProMesh.cpp">
-      <Filter>Entity</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\prometheusEngine\ProInputHandler.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\prometheusEngine\ProResourceLoader.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\prometheusEngine\ProTime.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\ObjectLoader.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusengine\graphics\Window.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\prometheusEngine\input\InputHandler.cpp">
+      <Filter>input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

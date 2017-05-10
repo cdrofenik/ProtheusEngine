@@ -12,29 +12,19 @@ namespace math {
 	class Vector3 {
 
 	public:
-		T x, y, z;
+		union
+		{
+			struct {
+				T x;
+				T y;
+				T z;
+			};
+			
+			T data[3];
+		};
+		
 		Vector3() : x(0), y(0), z(0) {}
 		Vector3(const T& xx, const T& yy, const T& zz) : x(xx), y(yy), z(zz) {}
-
-		T getValue(int axis) const
-		{
-			if (axis == 0)
-				return x;
-			else if (axis == 1)
-				return y;
-			else
-				return z;
-		}
-
-		void setValue(int axis, T value)
-		{
-			if (axis == 0)
-				x = value;
-			else if (axis == 1)
-				y = value;
-			else
-				z = value;
-		}
 
 		/*!
 		Returns square length value without the sqrt
@@ -85,6 +75,11 @@ namespace math {
 			x += v.x * scale;
 			y += v.y * scale;
 			z += v.z * scale;
+		}
+
+		bool isNear(const Vector3<T>& v) const
+		{
+			return fabs(x - v.x) < 0.01f && fabs(y - v.y) < 0.01f && fabs(z - v.z) < 0.01f;
 		}
 
 		/*!

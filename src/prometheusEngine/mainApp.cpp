@@ -1,15 +1,16 @@
 #include "mainApp.h"
 
 #include "ProTime.h"
-#include "ProInputHandler.h"
-#include "ProRenderUtil.h"
+#include "input\InputHandler.h"
 
 #include <iostream>
 
+using namespace graphics;
+using namespace input;
+
 mainApp::mainApp()
 {
-	m_displayManager = new ProDisplayManager(800, 600, "3D Game Engine - Prometheus");
-	ProRenderUtil::initGraphics();
+	m_window = new Window("3D Game Engine - Prometheus", 800, 600);
 }
 
 mainApp::~mainApp()
@@ -46,12 +47,11 @@ void mainApp::run()
 
 			ProTime::setDelta(frameTime);
 
+			InputHandler::Update();
 			m_game.input();
-			ProInputHandler::Update();
-
 			m_game.update();
 
-			if (m_displayManager->isClosed() || ProInputHandler::isKeyDown(256))
+			if (InputHandler::isKeyDown(256))
 				stop();
 
 			if (frameCount >= SECOND) {
@@ -70,9 +70,9 @@ void mainApp::run()
 
 void mainApp::render()
 {
-	ProRenderUtil::clearScreen();
+	m_window->clear();
 	m_game.render();
-	m_displayManager->Render();
+	m_window->render();
 }
 
 void mainApp::start()
@@ -81,7 +81,7 @@ void mainApp::start()
 		return;
 
 	m_isRunning = true;
-	ProInputHandler::Init(m_displayManager->GetWindow());
+	InputHandler::Init(m_window->getWindow());
 
 	m_game.start();
 	run();
@@ -93,5 +93,5 @@ void mainApp::stop()
 		return;
 
 	m_isRunning = false;
-	m_displayManager->Close();
+	m_window->close();
 }

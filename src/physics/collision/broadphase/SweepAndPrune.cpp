@@ -156,12 +156,12 @@ namespace physics
         {
             m_endPoints[axis][m_ePointCounter + 1] = m_endPoints[axis][m_ePointCounter - 1];
 
-            unsigned int val = quantize(volume.m_minVec.getValue(axis));
+            unsigned int val = quantize(volume.m_minVec.data[axis]);
             m_endPoints[axis][m_ePointCounter - 1].value = val;
             m_endPoints[axis][m_ePointCounter - 1].soIndex = m_sObjectCounter;
             m_endPoints[axis][m_ePointCounter - 1].isMax = false;
 
-            val = quantize(volume.m_maxVec.getValue(axis));
+            val = quantize(volume.m_maxVec.data[axis]);
             m_endPoints[axis][m_ePointCounter].value = val;
             m_endPoints[axis][m_ePointCounter].soIndex = m_sObjectCounter;
             m_endPoints[axis][m_ePointCounter].isMax = true;
@@ -196,8 +196,8 @@ namespace physics
             int minIdx = activeSo.min[axis];
             int maxIdx = activeSo.max[axis];
 
-            unsigned int volumeMin = quantize(updatedAabb.m_minVec.getValue(axis));
-            unsigned int volumeMax = quantize(updatedAabb.m_maxVec.getValue(axis));
+            unsigned int volumeMin = quantize(updatedAabb.m_minVec.data[axis]);
+            unsigned int volumeMax = quantize(updatedAabb.m_maxVec.data[axis]);
 
             unsigned int dMin = volumeMin - m_endPoints[axis][minIdx].value;
             unsigned int dMax = volumeMax - m_endPoints[axis][maxIdx].value;

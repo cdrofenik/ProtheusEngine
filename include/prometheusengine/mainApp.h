@@ -1,5 +1,5 @@
 #pragma once
-#include "ProDisplayManager.h"
+#include "prometheusengine\graphics\Window.h"
 #include "gameApp.h"
 
 class mainApp
@@ -14,7 +14,7 @@ public:
 	void stop();
 
 private:
-	ProDisplayManager* m_displayManager;
+	graphics::Window* m_window;
 	gameApp m_game;
 	bool m_isRunning = false;
 };

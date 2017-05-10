@@ -33,12 +33,12 @@ namespace physics
 		{
 			for (unsigned int i = 0; i < 3; i++)
 			{
-				math::Real value = point.getValue(i);
-				if (value < -halfSize.getValue(i))
-					value = -halfSize.getValue(i);
-				if (value > halfSize.getValue(i))
-					value = halfSize.getValue(i);
-				closestPoint.setValue(i, value);
+				math::Real value = point.data[i];
+				if (value < -halfSize.data[i])
+					value = -halfSize.data[i];
+				if (value > halfSize.data[i])
+					value = halfSize.data[i];
+				closestPoint.data[i] = value;
 			}
 		}
 	};

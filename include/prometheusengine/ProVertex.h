@@ -1,26 +1,17 @@
 #pragma once
 
-#include "../include/core/math/Vector3.hpp"
+#include "core/math/Vector2.hpp"
+#include "core/math/Vector3.hpp"
 
 struct ProVertex
 {
-public:
+	math::Vector3r position = math::Vector3r(0.0f, 0.0f, 0.0f);
+	math::Vector3r normal = math::Vector3r(0.0f, 0.0f, 0.0f);
+	math::Vector2r textureCoordinates = math::Vector2r(0.0f, 0.0f);
 
-	math::Vector3r GetPosition() {
-		return m_position;
-	}
-
-	void SetPosition(math::Real x, math::Real y, math::Real z) {
-		m_position.x = x;
-		m_position.y = y;
-		m_position.z = z;
-	}
-
-	ProVertex(math::Vector3r vector) {
-		m_position = vector;
-	}
-
-
-private:
-	math::Vector3r m_position = math::Vector3r(0.0f, 0.0f, 0.0f);
+	ProVertex(math::Vector3r pos, math::Vector3r norm, math::Vector2r texCoord) :
+		position(pos),
+		normal(norm),
+		textureCoordinates(texCoord)
+	{}
 };

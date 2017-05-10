@@ -11,6 +11,11 @@ namespace math {
 		T x, y;
 		Vector2() : x(0), y(0) {}
 		Vector2(const T& xx, const T& yy) : x(xx), y(yy) {}
+
+		bool isNear(const Vector2<T>& v) const
+		{
+			return fabs(x - v.x) < 0.01f && fabs(y - v.y) < 0.01f;
+		}
 	};
 
 	typedef Vector2<Real> Vector2r;

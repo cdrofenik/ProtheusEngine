@@ -79,6 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\Tests_$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Tests_$(Platform)_$(Configuration)\$(ProjectName)\Intermediates\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -86,6 +87,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\Tests_$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Tests_$(Platform)_$(Configuration)\$(ProjectName)\Intermediates\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -152,22 +154,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AlignedArrayTest.cpp" />
-    <ClCompile Include="LoggingTest.cpp" />
-    <ClCompile Include="Matrix3Test.cpp" />
-    <ClCompile Include="Matrix3x4Test.cpp" />
-    <ClCompile Include="Matrix4Test.cpp" />
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="src\AlignedArrayTest.cpp" />
+    <ClCompile Include="src\LoggingTest.cpp" />
+    <ClCompile Include="src\Matrix3Test.cpp" />
+    <ClCompile Include="src\Matrix3x4Test.cpp" />
+    <ClCompile Include="src\Matrix4Test.cpp" />
+    <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TransformTest.cpp" />
+    <ClCompile Include="src\TransformTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

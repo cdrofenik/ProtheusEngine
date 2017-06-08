@@ -10,7 +10,7 @@
 namespace math {
 
 	class Transform
-	{
+	{	
 	public:
 		Transform() {
 			m_scale = Vector3r(1.0f, 1.0f, 1.0f);

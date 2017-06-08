@@ -69,10 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>..\..\bin\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>..\..\bin\$(Platform)_$(Configuration)_$(ProjectName)\Intermediates\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>..\..\bin\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>..\..\bin\$(Platform)_$(Configuration)_$(ProjectName)\Intermediates\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -122,36 +124,6 @@
       <AdditionalLibraryDirectories>..\..\3rdParty\glfw-3.2.1.bin.WIN64\lib-vc2015;..\..\3rdParty\glew-2.0.0\lib\Release\x64;..\..\bin\x64_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <None Include="..\..\res\shaders\basicShader.fs" />
-    <None Include="..\..\res\shaders\basicShader.vs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\prometheusengine\gameApp.h" />
-    <ClInclude Include="..\..\include\prometheusengine\graphics\Window.h" />
-    <ClInclude Include="..\..\include\prometheusengine\input\InputHandler.h" />
-    <ClInclude Include="..\..\include\prometheusengine\mainApp.h" />
-    <ClInclude Include="..\..\include\prometheusengine\ObjectLoader.h" />
-    <ClInclude Include="..\..\include\prometheusengine\ProCamera.h" />
-    <ClInclude Include="..\..\include\prometheusengine\ProResourceLoader.h" />
-    <ClInclude Include="..\..\include\prometheusengine\ProShader.h" />
-    <ClInclude Include="..\..\include\prometheusengine\ProTexture.h" />
-    <ClInclude Include="..\..\include\prometheusengine\ProTime.h" />
-    <ClInclude Include="..\..\include\prometheusengine\ProVertex.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\prometheusEngine\gameApp.cpp" />
-    <ClCompile Include="..\..\src\prometheusengine\graphics\Window.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\input\InputHandler.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\main.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\mainApp.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\ObjectLoader.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\ProCamera.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\ProResourceLoader.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\ProShader.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\ProTexture.cpp" />
-    <ClCompile Include="..\..\src\prometheusEngine\ProTime.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

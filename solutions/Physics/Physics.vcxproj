@@ -69,10 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>..\..\bin\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>..\..\bin\$(Platform)_$(Configuration)_$(ProjectName)\Intermediates\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>..\..\bin\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>..\..\bin\$(Platform)_$(Configuration)_$(ProjectName)\Intermediates\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -117,38 +119,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\physics\collision\broadphase\Dbvt.h" />
-    <ClInclude Include="..\..\include\physics\collision\broadphase\IBroadPhase.hpp" />
-    <ClInclude Include="..\..\include\physics\collision\broadphase\PUniformGrid.h" />
-    <ClInclude Include="..\..\include\physics\collision\broadphase\SweepAndPrune.h" />
-    <ClInclude Include="..\..\include\physics\collision\broadphase\UniformGrid.h" />
-    <ClInclude Include="..\..\include\physics\collision\CollisionObject.h" />
-    <ClInclude Include="..\..\include\physics\collision\collisionshapes\BoundingVolumes.h" />
-    <ClInclude Include="..\..\include\physics\collision\collisionshapes\BoxShape.h" />
-    <ClInclude Include="..\..\include\physics\collision\collisionshapes\CollisionShape.h" />
-    <ClInclude Include="..\..\include\physics\collision\collisionshapes\SphereShape.h" />
-    <ClInclude Include="..\..\include\physics\collision\narrowphase\CollisionAlgorithm.h" />
-    <ClInclude Include="..\..\include\physics\collision\PairManager.h" />
-    <ClInclude Include="..\..\include\physics\Constants.h" />
-    <ClInclude Include="..\..\include\physics\DiscreteDynamicsWorld.h" />
-    <ClInclude Include="..\..\include\physics\dynamics\Particle.h" />
-    <ClInclude Include="..\..\include\physics\dynamics\RigidBody.h" />
-    <ClInclude Include="..\..\include\physics\ForceGenerator.h" />
-    <ClInclude Include="..\..\include\physics\MotionState.h" />
+    <ClCompile Include="src\collision\broadphase\Dbvt.cpp" />
+    <ClCompile Include="src\collision\broadphase\PUniformGrid.cpp" />
+    <ClCompile Include="src\collision\broadphase\SweepAndPrune.cpp" />
+    <ClCompile Include="src\collision\broadphase\UniformGrid.cpp" />
+    <ClCompile Include="src\collision\CollisionObject.cpp" />
+    <ClCompile Include="src\collision\collisionshape\BoxShape.cpp" />
+    <ClCompile Include="src\collision\ForceGenerator.cpp" />
+    <ClCompile Include="src\collision\narrowphase\CollisionAlgorithm.cpp" />
+    <ClCompile Include="src\collision\PairManager.cpp" />
+    <ClCompile Include="src\DiscreteDynamicsWorld.cpp" />
+    <ClCompile Include="src\dynamics\Particle.cpp" />
+    <ClCompile Include="src\dynamics\RigidBody.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\physics\collision\broadphase\Dbvt.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\broadphase\PUniformGrid.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\broadphase\SweepAndPrune.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\broadphase\UniformGrid.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\CollisionObject.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\collisionshape\BoxShape.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\ForceGenerator.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\narrowphase\CollisionAlgorithm.cpp" />
-    <ClCompile Include="..\..\src\physics\collision\PairManager.cpp" />
-    <ClCompile Include="..\..\src\physics\DiscreteDynamicsWorld.cpp" />
-    <ClCompile Include="..\..\src\physics\dynamics\Particle.cpp" />
-    <ClCompile Include="..\..\src\physics\dynamics\RigidBody.cpp" />
+    <ClInclude Include="src\collision\broadphase\Dbvt.h" />
+    <ClInclude Include="src\collision\broadphase\IBroadPhase.hpp" />
+    <ClInclude Include="src\collision\broadphase\PUniformGrid.h" />
+    <ClInclude Include="src\collision\broadphase\SweepAndPrune.h" />
+    <ClInclude Include="src\collision\broadphase\UniformGrid.h" />
+    <ClInclude Include="src\collision\CollisionObject.h" />
+    <ClInclude Include="src\collision\collisionshapes\BoundingVolumes.h" />
+    <ClInclude Include="src\collision\collisionshapes\BoxShape.h" />
+    <ClInclude Include="src\collision\collisionshapes\CollisionShape.h" />
+    <ClInclude Include="src\collision\collisionshapes\SphereShape.h" />
+    <ClInclude Include="src\collision\narrowphase\CollisionAlgorithm.h" />
+    <ClInclude Include="src\collision\PairManager.h" />
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\DiscreteDynamicsWorld.h" />
+    <ClInclude Include="src\dynamics\Particle.h" />
+    <ClInclude Include="src\dynamics\RigidBody.h" />
+    <ClInclude Include="src\ForceGenerator.h" />
+    <ClInclude Include="src\MotionState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

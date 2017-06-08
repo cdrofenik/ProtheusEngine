@@ -18,6 +18,41 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\entities\Camera.cpp" />
+    <ClCompile Include="src\gameApp.cpp" />
+    <ClCompile Include="src\graphics\buffers\Buffer.cpp" />
+    <ClCompile Include="src\graphics\buffers\IndexedBuffer.cpp" />
+    <ClCompile Include="src\graphics\buffers\VertexArray.cpp" />
+    <ClCompile Include="src\graphics\renderables\RenderableBox.cpp" />
+    <ClCompile Include="src\graphics\Renderer.cpp" />
+    <ClCompile Include="src\graphics\Shader.cpp" />
+    <ClCompile Include="src\graphics\Texture.cpp" />
+    <ClCompile Include="src\graphics\Window.cpp" />
+    <ClCompile Include="src\input\InputHandler.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\mainApp.cpp" />
+    <ClCompile Include="src\utils\OBJLoader.cpp" />
+    <ClCompile Include="src\utils\ResourceLoader.cpp" />
+    <ClCompile Include="src\utils\Time.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\entities\Camera.h" />
+    <ClInclude Include="src\gameApp.h" />
+    <ClInclude Include="src\graphics\buffers\Buffer.h" />
+    <ClInclude Include="src\graphics\buffers\IndexedBuffer.h" />
+    <ClInclude Include="src\graphics\buffers\VertexArray.h" />
+    <ClInclude Include="src\graphics\renderables\RenderableBox.h" />
+    <ClInclude Include="src\graphics\Renderer.h" />
+    <ClInclude Include="src\graphics\Shader.h" />
+    <ClInclude Include="src\graphics\Texture.h" />
+    <ClInclude Include="src\graphics\Window.h" />
+    <ClInclude Include="src\input\InputHandler.h" />
+    <ClInclude Include="src\mainApp.h" />
+    <ClInclude Include="src\utils\OBJLoader.h" />
+    <ClInclude Include="src\utils\ResourceLoader.h" />
+    <ClInclude Include="src\utils\Time.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{86B75449-42E5-486A-B814-0C25A2C873FE}</ProjectGuid>
     <RootNamespace>PrometheusEngine</RootNamespace>
@@ -89,6 +124,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\3rdParty\glew-2.0.0\include;..\..\3rdParty\glfw-3.2.1.bin.WIN64\include;..\..\3rdParty\stb-master;..\..\include;..\..\include\prometheusengine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\..\3rdParty\glfw-3.2.1.bin.WIN64\lib-vc2015;..\..\3rdParty\glew-2.0.0\lib\Release\x64;..\..\bin\x64_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -116,6 +152,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\3rdParty\glew-2.0.0\include;..\..\3rdParty\glfw-3.2.1.bin.WIN64\include;..\..\3rdParty\stb-master;..\..\include;..\..\include\prometheusengine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
